@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Unity Projects\MechanicMowerPrototype\MechanicMowerPrototype" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Code" t="Include">
+          <e p="MechanicMowerBehaviour.cs" t="Include" />
+          <e p="MechanicMowerEvents.cs" t="Include" />
+          <e p="MechanicMowerMovement.cs" t="Include" />
+          <e p="MowerInput.cs" t="Include" />
+          <e p="WheelsRotator.cs" t="Include" />
+        </e>
+      </e>
+      <e p="Library" t="ExcludeRecursive" />
+      <e p="MechanicMowerPrototype.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+    <e p="C:\Users\range\.Rider2018.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\range\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_MechanicMowerPrototype.-407265904.00" t="ExcludeRecursive" />
+  </component>
+</project>
