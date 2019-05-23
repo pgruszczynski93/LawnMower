@@ -27,11 +27,11 @@ namespace  GardenFlipperMower {
         }
 
         protected virtual void OnEnable() {
-            MechanicMowerEvents.OnInputUpdate += UpdateWheelsRotation;
+            MechanicMowerEvents.OnMovementUpdate += UpdateWheelsRotation;
         }
 
         protected virtual void OnDisable() {
-            MechanicMowerEvents.OnInputUpdate -= UpdateWheelsRotation;
+            MechanicMowerEvents.OnMovementUpdate -= UpdateWheelsRotation;
         }
         
         protected void UpdateWheelsRotation(Vector3 eulersFromInput) {

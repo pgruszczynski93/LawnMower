@@ -7,17 +7,17 @@ namespace GardenFlipperMower {
 
         protected override void OnEnable() {
             base.OnEnable();
-            MechanicMowerEvents.OnInputUpdate += UpdateBackWheelsRotation;
+            MechanicMowerEvents.OnMovementUpdate += UpdateBackWheelsRotation;
         }
 
         protected override void OnDisable() {
             base.OnDisable();
-            MechanicMowerEvents.OnInputUpdate += UpdateBackWheelsRotation;
+            MechanicMowerEvents.OnMovementUpdate += UpdateBackWheelsRotation;
         }
 
         protected void UpdateBackWheelsRotation(Vector3 eulersFromInput) {
-            var absoluteValue = Mathf.Abs(eulersFromInput.y);
-            if (absoluteValue > mowerDecelartion)
+            var inputAbsoluteValue = Mathf.Abs(eulersFromInput.y);
+            if (inputAbsoluteValue > mowerDecelartion)
                 return;
 
             RotateAlongZ(-eulersFromInput.x);

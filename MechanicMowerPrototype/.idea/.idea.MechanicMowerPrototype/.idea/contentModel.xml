@@ -13,7 +13,7 @@
           <e p="MechanicMowerEvents.cs" t="Include" />
           <e p="MechanicMowerMovement.cs" t="Include" />
           <e p="MowerCamera.cs" t="Include" />
-          <e p="MowerInput.cs" t="Include" />
+          <e p="MowerInputSystem.cs" t="Include" />
           <e p="WheelsRotator.cs" t="Include" />
         </e>
       </e>

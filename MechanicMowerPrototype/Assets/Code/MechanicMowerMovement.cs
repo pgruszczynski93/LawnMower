@@ -26,11 +26,11 @@ namespace GardenFlipperMower {
         }
 
         void OnEnable() {
-            MechanicMowerEvents.OnInputUpdate += UpdateMovePose;
+            MechanicMowerEvents.OnMovementUpdate += UpdateMovePose;
         }
 
         void OnDisable() {
-            MechanicMowerEvents.OnInputUpdate -= UpdateMovePose;
+            MechanicMowerEvents.OnMovementUpdate -= UpdateMovePose;
         }
 
 

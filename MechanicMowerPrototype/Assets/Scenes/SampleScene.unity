@@ -505,6 +505,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95899f82ef2641699a032c6afb70fc88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canStartMowing: 0
+  mowerBehaviour: {fileID: 4720761537683464712}
 --- !u!1 &907216602
 GameObject:
   m_ObjectHideFlags: 0
@@ -906,6 +908,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2031489513}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &4720761537683464712 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 173882358107274857, guid: 779887af9c24dd14c8d98697bf334832,
+    type: 3}
+  m_PrefabInstance: {fileID: 5258569168952480027}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac3f9c08c4fba44ea03e4afc9a2363e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4720761537683464713 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5148252135421127993, guid: 779887af9c24dd14c8d98697bf334832,
