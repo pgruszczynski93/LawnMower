@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Unity Projects\MechanicMowerPrototype\MechanicMowerPrototype" t="IncludeRecursive">
+    <e p="C:\Unity Projects\MechanicLawnMowerPrototype\LawnMower\MechanicMowerPrototype" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Code" t="Include">
+          <e p="BackWheelsRotator.cs" t="Include" />
+          <e p="FrontWheelsRotator.cs" t="Include" />
+          <e p="GameMasterBehaviour.cs" t="Include" />
           <e p="MechanicMowerBehaviour.cs" t="Include" />
           <e p="MechanicMowerEvents.cs" t="Include" />
           <e p="MechanicMowerMovement.cs" t="Include" />
+          <e p="MowerCamera.cs" t="Include" />
           <e p="MowerInput.cs" t="Include" />
           <e p="WheelsRotator.cs" t="Include" />
         </e>
@@ -16,9 +20,11 @@
       <e p="MechanicMowerPrototype.sln" t="IncludeFlat" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="packages" t="ExcludeRecursive" />
-      <e p="Temp\bin" t="ExcludeRecursive" />
+      <e p="Temp" t="ExcludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+      </e>
     </e>
     <e p="C:\Users\range\.Rider2018.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\range\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_MechanicMowerPrototype.-407265904.00" t="ExcludeRecursive" />
+    <e p="C:\Users\range\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_MechanicMowerPrototype.-1396911754.00" t="ExcludeRecursive" />
   </component>
 </project>

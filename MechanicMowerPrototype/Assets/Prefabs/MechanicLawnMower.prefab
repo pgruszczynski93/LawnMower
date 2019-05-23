@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d96f3ddd1b77d64b9ef234cb3c8dd8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceFactor: 20
+  rotationSpeed: 300
   wheelsRigidbody: {fileID: 4823253574587268807}
   wheelsCollider: {fileID: 6219619466691886052}
 --- !u!54 &1321582232256818293
@@ -134,7 +134,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 62
+  m_Constraints: 20
   m_CollisionDetection: 0
 --- !u!114 &9031425959138299246
 MonoBehaviour:
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d96f3ddd1b77d64b9ef234cb3c8dd8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceFactor: 20
+  rotationSpeed: 300
   wheelsRigidbody: {fileID: 1321582232256818293}
   wheelsCollider: {fileID: 4250613186591248574}
 --- !u!1 &4372684920339698519
@@ -197,7 +197,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3088526818186204420
 Transform:
   m_ObjectHideFlags: 0
@@ -227,6 +227,7 @@ GameObject:
   - component: {fileID: 173882358107274857}
   - component: {fileID: 2141908457364726240}
   - component: {fileID: 5260325403089807062}
+  - component: {fileID: 4720761537683464709}
   m_Layer: 0
   m_Name: MechanicLawnMower
   m_TagString: Untagged
@@ -276,8 +277,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59b020c224d04eb3849bc5e9cecf775b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationForceFactor: 0
-  movementForceFactor: 0
+  rotationSpeed: 120
+  movementSpeed: 5
   wheelsRotators:
   - {fileID: 4048088069576651494}
   - {fileID: 9031425959138299246}
@@ -295,6 +296,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalInput: 0
   verticalInput: 0
+--- !u!54 &4720761537683464709
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4720761537683464708}
+  serializedVersion: 2
+  m_Mass: 10
+  m_Drag: 0
+  m_AngularDrag: 5
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 4
+  m_CollisionDetection: 0
 --- !u!1 &7855690306942361492
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,7 +436,7 @@ PrefabInstance:
     - target: {fileID: 5818186947584640963, guid: a4c6b584ca1d9b646a5f0e3b38f55d0d,
         type: 3}
       propertyPath: m_Constraints
-      value: 62
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4c6b584ca1d9b646a5f0e3b38f55d0d, type: 3}

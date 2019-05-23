@@ -40,33 +40,35 @@ namespace GardenFlipperMower {
             rotationDirection = new Vector3(0, inputVector.x, 0);
 
             if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow)) {
-//                cachedTransform.Translate(movementDirection * movementMultiplier * dt);
                 UpdatePosition();
             }
 
             if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)) {
-//                cachedTransform.Rotate(rotationDirection * rotationMultiplier * dt);
-
                 UpdateRotation();
             }
         }
 
         void UpdateRotation() {
-            var fromRotation = cachedTransform.rotation;
-            var currentRotationAngles = cachedTransform.eulerAngles;
-            var toRotation = Quaternion.Euler(currentRotationAngles + rotationDirection);
-            var slerpFraction = dt * rotationSpeed;
-            var newRotation = Quaternion.Slerp(fromRotation, toRotation, slerpFraction);
-            cachedTransform.rotation = newRotation;
+//            var fromRotation = cachedTransform.rotation;
+//            var currentRotationAngles = cachedTransform.eulerAngles;
+//            var toRotation = Quaternion.Euler(currentRotationAngles + rotationDirection);
+//            var slerpFraction = dt * rotationSpeed;
+//            var newRotation = Quaternion.Slerp(fromRotation, toRotation, slerpFraction);
+//            cachedTransform.rotation = newRotation;
+
+            var totalEulers = rotationDirection * rotationSpeed * dt;
+            cachedTransform.Rotate(totalEulers);
+
         }
 
         void UpdatePosition() {
-            var fromPosition = cachedTransform.position;
-            Debug.Log(fromPosition);
-            var toPosition = new Vector3(fromPosition.x + movementDirection.x, 0, 0);
-            var lerpFraction = dt * movementSpeed;
-            var newPosition = Vector3.Lerp(fromPosition, toPosition, lerpFraction);
-            cachedTransform.position = newPosition;
+//            var fromPosition = cachedTransform.position;
+//            var toPosition = new Vector3(fromPosition.x + movementDirection.x, 0, 0);
+//            var lerpFraction = dt * movementSpeed;
+//            var newPosition = Vector3.Lerp(fromPosition, toPosition, lerpFraction);
+//            cachedTransform.position = newPosition;
+            var translation = movementDirection * movementSpeed * dt;
+            cachedTransform.Translate(translation);
         }
     }
 }

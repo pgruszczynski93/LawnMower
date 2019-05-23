@@ -16,17 +16,5 @@ namespace  GardenFlipperMower {
                 return;
             }
         }
-        
-        void OnEnable() {
-        }
-
-        void OnDisable() {
-        }
-
-        
-        
-        void Update() {
-            MechanicMowerEvents.BroadcastOnMechanicMowerUpdate();    
-        }
     }
 }

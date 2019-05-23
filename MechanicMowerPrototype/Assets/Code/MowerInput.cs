@@ -7,16 +7,16 @@ namespace GardenFlipperMower {
         [SerializeField] float verticalInput;
 
         void OnEnable() {
-            MechanicMowerEvents.OnMechanicMowerUpdate += GetInput;
+            MechanicMowerEvents.OnCustomUpdate += GetInput;
         }
 
         void OnDisable() {
-            MechanicMowerEvents.OnMechanicMowerUpdate -= GetInput;
+            MechanicMowerEvents.OnCustomUpdate -= GetInput;
         }
         
         void GetInput() {
-            horizontalInput = Input.GetAxis("Horizontal");
-            verticalInput = Input.GetAxis("Vertical");
+            horizontalInput = Input.GetAxisRaw("Horizontal");
+            verticalInput = Input.GetAxisRaw("Vertical");
             var inputVector = new Vector3(horizontalInput, verticalInput, 0f);
             
             MechanicMowerEvents.BroadcastOnPositionUpdate(inputVector);

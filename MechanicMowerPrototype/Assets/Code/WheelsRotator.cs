@@ -5,18 +5,18 @@ using UnityEngine;
 namespace  GardenFlipperMower {
     public class WheelsRotator : MonoBehaviour {
         
-        [SerializeField] float rotationMultiplier;
-        [SerializeField] Rigidbody wheelsRigidbody;
-        [SerializeField] CapsuleCollider wheelsCollider;
+        [SerializeField] protected float rotationSpeed;
+        [SerializeField] protected Rigidbody wheelsRigidbody;
+        [SerializeField] protected CapsuleCollider wheelsCollider;
 
-        float dt;
-        Transform cachedTransform;
+        protected float dt;
+        protected Transform cachedTransform;
 
-        void Start() {
+        protected virtual void Start() {
             Initialize();
         }
 
-        void Initialize() {
+        protected virtual void Initialize() {
             if (wheelsCollider == null || wheelsRigidbody == null) {
                 Debug.LogError("Assign proper components first.");
                 return;
@@ -25,18 +25,19 @@ namespace  GardenFlipperMower {
             cachedTransform = transform;
         }
 
-        void OnEnable() {
-            MechanicMowerEvents.OnInputUpdate += UpdateWheelsPoses;
+        protected virtual void OnEnable() {
+            MechanicMowerEvents.OnInputUpdate += UpdateWheelsRotation;
         }
 
-        void OnDisable() {
-            MechanicMowerEvents.OnInputUpdate -= UpdateWheelsPoses;
+        protected virtual void OnDisable() {
+            MechanicMowerEvents.OnInputUpdate -= UpdateWheelsRotation;
         }
 
-        void UpdateWheelsPoses(Vector3 inputVector) {
+        protected void UpdateWheelsRotation(Vector3 eulersFromInput) {
             dt = Time.deltaTime;
-            var wheelsMovementVector = new Vector3(0,0, -inputVector.y);
-            cachedTransform.Rotate(wheelsMovementVector * dt * rotationMultiplier);
+            var wheelsMovementVector = new Vector3(0,0, -eulersFromInput.y);
+            var totalEulers = wheelsMovementVector * dt * rotationSpeed;
+            cachedTransform.Rotate(totalEulers);
         }
     }
 }
