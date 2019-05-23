@@ -1,5 +1,3 @@
 namespace GardenFlipperMower {
-    public class FrontWheelsRotator {
-        
-    }
+    public class FrontWheelsRotator : WheelsRotator{}
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 namespace GardenFlipperMower {
     public class GameMasterBehaviour : MonoBehaviour{
 
-        void Update() {
+        void FixedUpdate() {
             MechanicMowerEvents.BroadcastOnMechanicMowerUpdate();    
         }
 
