@@ -9,6 +9,7 @@
           <e p="FrontWheelsRotator.cs" t="Include" />
           <e p="GameMasterBehaviour.cs" t="Include" />
           <e p="IUpdateable.cs" t="Include" />
+          <e p="MechanicMowerAudioController.cs" t="Include" />
           <e p="MechanicMowerBehaviour.cs" t="Include" />
           <e p="MechanicMowerEvents.cs" t="Include" />
           <e p="MechanicMowerMovement.cs" t="Include" />

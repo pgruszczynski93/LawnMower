@@ -22,8 +22,10 @@ namespace GardenFlipperMower {
         }
         
         void UpdateMowerMovementInput() {
-            horizontalInput = Input.GetAxisRaw("Horizontal");
-            verticalInput = Input.GetAxisRaw("Vertical");
+            horizontalInput = Input.GetAxis("Horizontal");
+            verticalInput = Input.GetAxis("Vertical");
+//            horizontalInput = Input.GetAxisRaw("Horizontal");
+//            verticalInput = Input.GetAxisRaw("Vertical");
             var inputVector = new Vector3(horizontalInput, verticalInput, 0f);
             
             MechanicMowerEvents.BroadcastOnMovementUpdate(inputVector);

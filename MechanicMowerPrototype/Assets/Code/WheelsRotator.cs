@@ -14,10 +14,10 @@ namespace  GardenFlipperMower {
         protected Vector3 wheelsMovementVector;
 
         protected virtual void Start() {
-            Initialize();
+            Initialise();
         }
 
-        protected virtual void Initialize() {
+        protected virtual void Initialise() {
             if (/*wheelsCollider == null || */wheelsRigidbody == null) {
                 Debug.LogError("Assign proper components first.");
                 return;

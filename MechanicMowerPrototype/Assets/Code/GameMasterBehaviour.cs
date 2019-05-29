@@ -3,21 +3,18 @@ using UnityEngine;
 namespace GardenFlipperMower {
     public class GameMasterBehaviour : MonoBehaviour {
 
-        [SerializeField] bool canStartMowing;
         [SerializeField] MechanicMowerBehaviour mowerBehaviour;
 
         void Start() {
-            Initiailze();
+            Initialise();
         }
 
-        void Initiailze() {
+        void Initialise() {
             if (mowerBehaviour == null) {
                 Debug.LogError("Assign proper components first.");
                 return;
             }
 
-            canStartMowing = mowerBehaviour.IsWorking;
-            
             //dopisa c wlaczanie wylaczanie kosiarki, dodac dzwiek i particle
         }
 
@@ -26,7 +23,7 @@ namespace GardenFlipperMower {
         }
         
         void FixedUpdate() {
-            MechanicMowerEvents.BroadcastOnCustomFixedUpdate();    
+            RunFixedUpdateEvents();
         }
 
         void LateUpdate() {
@@ -34,6 +31,9 @@ namespace GardenFlipperMower {
         }
 
         void RunFixedUpdateEvents() {
+            if (mowerBehaviour.IsWorking) {
+                MechanicMowerEvents.BroadcastOnCustomFixedUpdate();    
+            }
         }
         
     }
