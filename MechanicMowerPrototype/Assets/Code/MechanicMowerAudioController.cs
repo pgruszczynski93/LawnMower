@@ -4,16 +4,13 @@ using UnityEngine;
 
 namespace GardenFlipperMower {
     public class MechanicMowerAudioController : MonoBehaviour {
-        const float MIN_ENGINE_PITCH = 0.3f;
-        const float MAX_ENGINE_PITCH = 1.0f;
-        const float START_SOUND_DELAY = 2.0f;
-        const float END_SOUND_DELAY = 1.8f;
+        const float MIN_AUDIO_VALUE = 0.75f;
+        const float MAX_AUDIO_VALUE = 1.0f;
 
         bool isMowerWorking;
+        bool isMowerMowing;
 
-        [Range(0.2f, 1f)] [SerializeField] float engineSoundTreshold;
-        [SerializeField] float soundMultiplier;
-
+        [Range(0.5f, 2f)][SerializeField] float soundEffectMultiplier;
         [SerializeField] AudioSource engineAudioSource;
 
         [SerializeField] AudioClip startEngineClip;
@@ -74,7 +71,7 @@ namespace GardenFlipperMower {
                 return;
             }
 
-            SetAudioSource(startEngineClip);
+            StartCoroutine(FadeAudio(0.25f, 1.75f, () => { SetAudioSource(startEngineClip); }));
         }
 
         void PlayEngineLoopedSource(Vector3 movementVector) {
@@ -100,7 +97,6 @@ namespace GardenFlipperMower {
 
         void PlayEngineTurnOff() {
             if (isMowerWorking == false) {
-                StopAllCoroutines();
                 return;
             }
 
@@ -115,9 +111,44 @@ namespace GardenFlipperMower {
 
         void UpdateLoopedEngineSource(Vector3 movementVector) {
             var dt = Time.deltaTime;
-            soundMultiplier = Mathf.Max(movementVector.x, movementVector.y);
-            var scaledSoundMultiplier = soundMultiplier * dt * 10;
-            Debug.Log(soundMultiplier + " " + scaledSoundMultiplier + " " + movementVector);
+            var scaledSoundMultiplier = dt * soundEffectMultiplier;
+            isMowerMowing = (movementVector.magnitude > 0);
+            var pitch = engineAudioSource.pitch;
+            var canIncreaseAudioEffects = isMowerMowing && pitch < MAX_AUDIO_VALUE;
+            var canDecreaseAudioEffects = isMowerMowing == false && pitch > MIN_AUDIO_VALUE;
+            
+            if (canIncreaseAudioEffects) {
+                UpdateVolumeAndPitch(scaledSoundMultiplier);
+            }
+            else if (canDecreaseAudioEffects) {
+                UpdateVolumeAndPitch(-scaledSoundMultiplier);
+            }
+        }
+
+        void UpdateVolumeAndPitch(float scaledSoundMultiplier) {
+            engineAudioSource.pitch += scaledSoundMultiplier;
+            engineAudioSource.volume += scaledSoundMultiplier;
+            engineAudioSource.pitch = Mathf.Clamp(engineAudioSource.pitch, MIN_AUDIO_VALUE, MAX_AUDIO_VALUE);
+            engineAudioSource.volume = Mathf.Clamp(engineAudioSource.volume, MIN_AUDIO_VALUE, MAX_AUDIO_VALUE);
+        }
+
+        IEnumerator FadeAudio(float duration, float fadeDelay = 0.0f, Action onFadeStart = null,
+            Action onFadeFinished = null) {
+            onFadeStart?.Invoke();
+            
+            yield return new WaitForSeconds(fadeDelay);
+            var time = 0.0f;
+            var pitch = engineAudioSource.pitch;
+            var volume = engineAudioSource.volume;
+            while (time < duration) {
+                time += Time.deltaTime;
+                var lerpStep = time / duration;
+                engineAudioSource.pitch = Mathf.Lerp(pitch, MIN_AUDIO_VALUE, lerpStep);
+                engineAudioSource.volume = Mathf.Lerp(volume, MIN_AUDIO_VALUE, lerpStep);
+                yield return null;
+            }
+
+            onFadeFinished?.Invoke();
         }
     }
 }

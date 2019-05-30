@@ -1002,12 +1002,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 739096661, guid: 779887af9c24dd14c8d98697bf334832, type: 3}
       propertyPath: m_Volume
-      value: 0.3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8411897795519472732, guid: 779887af9c24dd14c8d98697bf334832,
         type: 3}
       propertyPath: engineSoundTreshold
-      value: 0.5
+      value: 0.219
       objectReference: {fileID: 0}
+    - target: {fileID: 5003645637059290570, guid: 779887af9c24dd14c8d98697bf334832,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 243096186508735994, guid: f970985ac635031428672073f0c63ce2,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 779887af9c24dd14c8d98697bf334832, type: 3}

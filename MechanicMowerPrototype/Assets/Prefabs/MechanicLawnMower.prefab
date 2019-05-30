@@ -140,8 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e704c67db15e32b48b50b34bf065369b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  engineSoundTreshold: 0.3
-  soundMultiplier: 0
+  soundEffectMultiplier: 0.85
   engineAudioSource: {fileID: 5003645637059290570}
   startEngineClip: {fileID: 8300000, guid: 5d39681292d300641975ddf087ea5786, type: 3}
   loopedEngineClip: {fileID: 8300000, guid: f46a942c39c322245a40142b5c1d7812, type: 3}

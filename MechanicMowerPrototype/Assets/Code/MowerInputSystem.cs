@@ -22,13 +22,13 @@ namespace GardenFlipperMower {
         }
         
         void UpdateMowerMovementInput() {
-            horizontalInput = Input.GetAxis("Horizontal");
-            verticalInput = Input.GetAxis("Vertical");
-//            horizontalInput = Input.GetAxisRaw("Horizontal");
-//            verticalInput = Input.GetAxisRaw("Vertical");
-            var inputVector = new Vector3(horizontalInput, verticalInput, 0f);
+//            horizontalInput = Input.GetAxis("Horizontal");
+//            verticalInput = Input.GetAxis("Vertical");
+            horizontalInput = Input.GetAxisRaw("Horizontal");
+            verticalInput = Input.GetAxisRaw("Vertical");
+            var normalizedInputVector = new Vector3(horizontalInput, verticalInput, 0f).normalized;
             
-            MechanicMowerEvents.BroadcastOnMovementUpdate(inputVector);
+            MechanicMowerEvents.BroadcastOnMovementUpdate(normalizedInputVector);
         }
 
         void StartMoweInput() {
