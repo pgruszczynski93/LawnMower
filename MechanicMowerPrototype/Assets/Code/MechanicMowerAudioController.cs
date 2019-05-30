@@ -71,27 +71,30 @@ namespace GardenFlipperMower {
 
         void PlayEngineTurnOn() {
             if (isMowerWorking) {
-                StopAllCoroutines();
                 return;
             }
 
-            engineAudioSource.clip = startEngineClip;
-            engineAudioSource.Play();
+            SetAudioSource(startEngineClip);
         }
 
         void PlayEngineLoopedSource(Vector3 movementVector) {
+            TryToEnableLoopedEngineAudio();
+            TryToUpdateLoopedEngineAudio(movementVector);
+        }
+
+        void TryToUpdateLoopedEngineAudio(Vector3 movementVector) {
+            if (isMowerWorking) {
+                UpdateLoopedEngineSource(movementVector);
+            }
+        }
+
+        void TryToEnableLoopedEngineAudio() {
             if (isMowerWorking == false) {
                 return;
             }
 
             if (engineAudioSource.isPlaying == false) {
-                engineAudioSource.clip = loopedEngineClip;
-                engineAudioSource.loop = true;
-                engineAudioSource.Play();
-            }
-
-            if (isMowerWorking) {
-                UpdateLoopedEngineSource(movementVector);
+                SetAudioSource(loopedEngineClip, true);
             }
         }
 
@@ -101,16 +104,13 @@ namespace GardenFlipperMower {
                 return;
             }
 
-            engineAudioSource.clip = endEngineClip;
-            engineAudioSource.loop = false;
+            SetAudioSource(endEngineClip);
+        }
+
+        void SetAudioSource(AudioClip clip, bool isLooped = false) {
+            engineAudioSource.clip = clip;
+            engineAudioSource.loop = isLooped;
             engineAudioSource.Play();
-//            mowerLoopedSource.Stop();
-//            mowerEndSource.Play();
-////
-//        StartCoroutine(PlayDelayedSource(END_SOUND_DELAY, () => {
-//            mowerLoopedSource.Stop();
-//            mowerEndSource.Play();
-//        }));
         }
 
         void UpdateLoopedEngineSource(Vector3 movementVector) {
@@ -118,24 +118,6 @@ namespace GardenFlipperMower {
             soundMultiplier = Mathf.Max(movementVector.x, movementVector.y);
             var scaledSoundMultiplier = soundMultiplier * dt * 10;
             Debug.Log(soundMultiplier + " " + scaledSoundMultiplier + " " + movementVector);
-
-//        if (soundMultiplier >= engineSoundTreshold && mowerLoopedSource.pitch < MAX_ENGINE_PITCH) {
-//            mowerLoopedSource.volume += scaledSoundMultiplier;
-//            mowerLoopedSource.pitch += scaledSoundMultiplier;
-//        }
-//        else if (soundMultiplier < engineSoundTreshold && mowerLoopedSource.pitch > MIN_ENGINE_PITCH) {
-//            mowerLoopedSource.volume += scaledSoundMultiplier;
-//            mowerLoopedSource.pitch += scaledSoundMultiplier;
-//        }
-//
-//        mowerLoopedSource.volume = Mathf.Clamp(mowerLoopedSource.volume, MIN_ENGINE_PITCH, MAX_ENGINE_PITCH);
-//        mowerLoopedSource.pitch = Mathf.Clamp(mowerLoopedSource.pitch, MIN_ENGINE_PITCH, MAX_ENGINE_PITCH);
         }
-
-        IEnumerator PlayDelayedSource(float delay, Action onSourceChanged = null) {
-            yield return new WaitForSeconds(delay);
-            onSourceChanged?.Invoke();
-        }
-        
     }
 }
