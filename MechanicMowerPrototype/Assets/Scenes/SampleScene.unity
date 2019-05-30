@@ -505,7 +505,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95899f82ef2641699a032c6afb70fc88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canStartMowing: 0
   mowerBehaviour: {fileID: 4720761537683464712}
 --- !u!1 &907216602
 GameObject:
@@ -992,6 +991,23 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410130701, guid: 779887af9c24dd14c8d98697bf334832, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410130701, guid: 779887af9c24dd14c8d98697bf334832, type: 3}
+      propertyPath: m_Volume
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 739096661, guid: 779887af9c24dd14c8d98697bf334832, type: 3}
+      propertyPath: m_Volume
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8411897795519472732, guid: 779887af9c24dd14c8d98697bf334832,
+        type: 3}
+      propertyPath: engineSoundTreshold
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 779887af9c24dd14c8d98697bf334832, type: 3}

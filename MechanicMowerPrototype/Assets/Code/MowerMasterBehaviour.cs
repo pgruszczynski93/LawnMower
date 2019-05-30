@@ -1,7 +1,7 @@
 using UnityEngine;
 
 namespace GardenFlipperMower {
-    public class GameMasterBehaviour : MonoBehaviour {
+    public class MowerMasterBehaviour : MonoBehaviour {
 
         [SerializeField] MechanicMowerBehaviour mowerBehaviour;
 
@@ -14,8 +14,6 @@ namespace GardenFlipperMower {
                 Debug.LogError("Assign proper components first.");
                 return;
             }
-
-            //dopisa c wlaczanie wylaczanie kosiarki, dodac dzwiek i particle
         }
 
         void Update() {
